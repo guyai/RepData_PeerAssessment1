@@ -17,6 +17,7 @@ activity=read.csv("activity.csv",colClasses=c(NA,"Date",NA))
 ```
 
 ## What is mean total number of steps taken per day?
+
 1. Histogram of total number of steps taken each day.
 ```{r}
 DailyActivity=aggregate(steps~date, data=activity, FUN=sum,na.rm=FALSE, na.action=NULL)
@@ -88,6 +89,7 @@ summary(Dactivity)
 Mean total number of steps taken per day was: 10,766 and Median was: 10,766
 
 ### Are there differences in activity patterns between weekdays and weekends?
+
 1.  Creating a new factor variable in the dataset with two levels - "weekday" and "weekend" indicating whether a given date is a weekday or weekend day.
 ```{r}
 for (i in 1:dim(activityfilled)[1])
@@ -96,6 +98,7 @@ for (i in 1:dim(activityfilled)[1])
 } else  {
   activityfilled[i,"wd"]="weekday"
   }
+head(activityfilled)
 ```
 
 2.  Make a panel plot containing a time series plot (i.e. type = "l") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all weekday days or weekend days (y-axis).
