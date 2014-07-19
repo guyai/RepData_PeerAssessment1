@@ -104,10 +104,12 @@ head(activityfilled)
 2.  Make a panel plot containing a time series plot (i.e. type = "l") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all weekday days or weekend days (y-axis).
 ```{r}
 library(ggplot2)
-#nei1=aggregate(Emissions~year+type, data=nei, FUN=sum)
 avg=aggregate(steps~interval+wd, data=activityfilled, FUN=mean)
 g=ggplot(avg,aes(interval,steps))
-g=g+ geom_line() +facet_wrap(~ wd, ncol=1) + labs(title="Plot of the 5-minute interval and the average number of steps taken")  +labs(x="Interval",y="steps") 
+g=g+ geom_line() +
+  facet_wrap(~ wd, ncol=1) + 
+  labs(title="Plot of the 5-minute interval and the average number of steps taken")  +
+  labs(x="Interval",y="steps") 
 g
 
 ```
